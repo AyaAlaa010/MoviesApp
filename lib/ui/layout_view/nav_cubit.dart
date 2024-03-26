@@ -38,4 +38,3 @@ class NavigationCubit  extends Cubit<int>{
 
 
 
-}
