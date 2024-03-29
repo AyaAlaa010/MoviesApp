@@ -2,7 +2,7 @@ class PagesRouteName {
   static const splash="/";
 
 
-  static const homeView="homeView";
+  static const layoutView="layoutView";
 
 
 

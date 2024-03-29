@@ -34,9 +34,7 @@ class _LayoutViewState extends State<LayoutView> {
         onTap: (index){
           setState(() {
             currentIndex=index;
-
           });
-
 
         },
         items: const [
