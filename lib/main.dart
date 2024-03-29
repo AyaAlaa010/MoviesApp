@@ -21,7 +21,7 @@ class MyApplication extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const LayoutView(),
       theme: ApplicationThemeManager.theme,
-      initialRoute: PagesRouteName.homeView,
+      initialRoute: PagesRouteName.layoutView,
       onGenerateRoute: Routes.onGeneratedRouteSettings,
       navigatorKey: navigatorKey,
     );
