@@ -10,7 +10,7 @@ class NewReleasesWidget extends StatelessWidget {
       Stack(
         alignment: Alignment.topLeft,
         children: [
-          Image.asset("assets/images/movie_img.png",fit: BoxFit.cover,),
+          Image.asset("assets/images/dora.png",fit: BoxFit.cover,),
           Container(
             height: 33,
             alignment: Alignment.center,
