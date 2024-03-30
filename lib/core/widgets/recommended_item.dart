@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_constants/constants.dart';
-import '../../../core/config/styles/app_colors.dart';
+import '../config/app_constants/constants.dart';
+import '../config/styles/app_colors.dart';
 
 class RecommendedItemWidget extends StatelessWidget {
   const RecommendedItemWidget({super.key});
