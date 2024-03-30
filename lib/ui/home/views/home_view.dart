@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
             flex: 3,
             child: Container(
               color: AppColors.onPrimaryColor,
-              padding:const  EdgeInsets.only(top: 15,bottom: 15,left: 15),
+              padding:const  EdgeInsets.only(top: 10,bottom: 10,left: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -44,11 +44,11 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             )),
-      const   SizedBox(height: 20,),
+      const   SizedBox(height: 25,),
         Expanded(
             flex: 4,
             child: Container(
-              padding:const  EdgeInsets.only(top: 15,bottom: 15,left: 15),
+              padding:const  EdgeInsets.only(top: 10,bottom: 10,left: 15),
 
               color: AppColors.onPrimaryColor,
               child: Column(
