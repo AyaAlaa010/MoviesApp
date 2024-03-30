@@ -6,7 +6,8 @@ class NewReleasesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return   Padding(
       padding:const  EdgeInsets.only(top: 10,right: 8),
-      child: Stack(
+      child:
+      Stack(
         alignment: Alignment.topLeft,
         children: [
           Image.asset("assets/images/movie_img.png",fit: BoxFit.cover,),

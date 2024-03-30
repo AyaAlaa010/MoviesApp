@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/ui/home/widgets/recommended_item.dart';
 
 import '../../../core/config/app_constants/constants.dart';
 import '../../../core/config/styles/app_colors.dart';
@@ -43,9 +44,9 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             )),
-      const   SizedBox(height: 30,),
+      const   SizedBox(height: 20,),
         Expanded(
-            flex: 3,
+            flex: 4,
             child: Container(
               padding:const  EdgeInsets.only(top: 15,bottom: 15,left: 15),
 
@@ -57,7 +58,7 @@ class HomeView extends StatelessWidget {
                   Expanded(
                     child: ListView.builder(
                       itemBuilder: (context, index) {
-                        return  const NewReleasesWidget();
+                        return  const RecommendedItemWidget();
                       },
                       itemCount: 10,
                       scrollDirection: Axis.horizontal,
