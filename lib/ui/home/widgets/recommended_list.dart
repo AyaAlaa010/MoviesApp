@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import '../../../core/config/app_constants/constants.dart';
 import '../../../core/config/styles/app_colors.dart';
 import '../../../core/widgets/recommended_item.dart';

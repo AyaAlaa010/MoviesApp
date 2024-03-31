@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../config/app_constants/constants.dart';
 import '../config/styles/app_colors.dart';
+import 'new_releases_widget.dart';
 
 class RecommendedItemWidget extends StatelessWidget {
   const RecommendedItemWidget({super.key});
@@ -12,31 +13,11 @@ class RecommendedItemWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       color: AppColors.itemBackground,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Expanded(
-          flex: 8,
-          child: Stack(
-            alignment: Alignment.topLeft,
-            children: [
-              Image.asset(
-                "assets/images/movie_img.png",
-                fit: BoxFit.cover,
-              ),
-              Container(
-                height: 33,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: Image.asset("assets/images/add_background.png",
-                                fit: BoxFit.cover)
-                            .image)),
-                child: const Icon(
-                  Icons.add,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-        ),
+        const Expanded(
+            flex: 8,
+            child: NewReleasesWidget(
+              image: "assets/images/movie_img.png",
+            )),
         Expanded(
           flex: 2,
           child: Row(

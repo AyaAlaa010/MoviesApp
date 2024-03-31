@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/new_releases_widget.dart';
 import '../../../core/config/app_constants/constants.dart';
@@ -9,19 +8,19 @@ class MoviePosterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 7,
-      child: Stack(
+    return
+      Stack(
         alignment: Alignment.bottomLeft,
         children: [
           const PosterWidget(),
           Positioned(
-            bottom: -35,
+            bottom: -25,
             child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               const SizedBox(
-                width: 5,
+                width: 8,
               ),
-              const NewReleasesWidget(),
+              const NewReleasesWidget(image: "assets/images/dora.png",),
+              const SizedBox(width: 8,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -30,7 +29,7 @@ class MoviePosterWidget extends StatelessWidget {
                   ),
                   Text(
                     "Dora and the lost city of gold",
-                    style: Constants.theme.textTheme.labelMedium,
+                    style: Constants.theme.textTheme.labelSmall!.copyWith(color: Colors.white),
                   ),
                   const SizedBox(
                     height: 7,
@@ -44,7 +43,7 @@ class MoviePosterWidget extends StatelessWidget {
             ]),
           ),
         ],
-      ),
-    );
+      )
+    ;
   }
 }

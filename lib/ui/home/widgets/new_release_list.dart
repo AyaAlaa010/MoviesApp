@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import '../../../core/config/app_constants/constants.dart';
 import '../../../core/config/styles/app_colors.dart';
 import '../../../core/widgets/new_releases_widget.dart';
@@ -9,9 +8,11 @@ class NewReleaseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Expanded(
+    return
+      Expanded(
         flex: 4,
-        child: Container(
+        child:
+        Container(
           color: AppColors.onPrimaryColor,
           padding: const EdgeInsets.only(top: 10, bottom: 10, left: 15),
           child: Column(
@@ -24,7 +25,9 @@ class NewReleaseList extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (context, index) {
-                    return const NewReleasesWidget();
+                    return const Padding(
+                        padding:  EdgeInsets.only(top: 10,right: 8),
+                        child:  NewReleasesWidget(image: "assets/images/movie_img.png",));
                   },
                   itemCount: 10,
                   scrollDirection: Axis.horizontal,
