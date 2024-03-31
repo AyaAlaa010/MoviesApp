@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 class NewReleasesWidget extends StatelessWidget {
-  const NewReleasesWidget({super.key});
+  final String image;
+  const NewReleasesWidget({super.key,required this.image});
 
   @override
   Widget build(BuildContext context) {
     return   Stack(
+      alignment: Alignment.topLeft,
       children: [
-        Image.asset("assets/images/movie_img.png"),
+        Image.asset(image,fit: BoxFit.cover,),
         Container(
+          height: 33,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: Image.asset("assets/images/add_background.png").image
+              image: Image.asset("assets/images/add_background.png",fit: BoxFit.cover).image
             )
           ),
-          child: const Icon(Icons.add,color: Colors.white,size: 30,),
+          child: const Icon(Icons.add,color: Colors.white,),
 
         )
 

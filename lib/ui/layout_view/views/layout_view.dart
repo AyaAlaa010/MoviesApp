@@ -28,14 +28,12 @@ class _LayoutViewState extends State<LayoutView> {
   Widget build(BuildContext context) {
     return Scaffold(
      body: screens[currentIndex],
-
       bottomNavigationBar:BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index){
           setState(() {
             currentIndex=index;
           });
-
         },
         items: const [
           BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/home_icon.png")),label: "HOME"),

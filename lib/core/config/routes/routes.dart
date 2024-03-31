@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/routes/pages_route_name.dart';
-import 'package:movies_app/ui/home/views/home_view.dart';
 import 'package:movies_app/ui/layout_view/views/layout_view.dart';
 import 'package:movies_app/ui/splash/views/splash_views.dart';
 
@@ -16,7 +15,7 @@ class Routes {
             builder: (context) => const LayoutView(), settings: settings);
 
       default:
-        return MaterialPageRoute(builder: (context) => const HomeView());
+        return MaterialPageRoute(builder: (context) => const LayoutView());
     }
   }
 }
