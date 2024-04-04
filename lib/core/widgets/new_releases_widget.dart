@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:movies_app/core/config/app_constants/constants.dart';
 import 'package:movies_app/core/widgets/cashed_network_image_widget.dart';
 import 'package:movies_app/data/models/home_models/movie_model.dart';
@@ -16,16 +15,18 @@ class NewReleasesWidget extends StatelessWidget {
       children: [
         CashedNetworkImageWidget(image: Constants.imageBaseUrl+movieModel.poster_path)
       ,
-        Container(
-          height: 33,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: Image.asset("assets/images/add_background.png",fit: BoxFit.cover).image
-            )
-          ),
-          child: const Icon(Icons.add,color: Colors.white,),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Container(
+            height: 33,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: Image.asset("assets/images/add_background.png",fit: BoxFit.cover).image
+              )
+            ),
+            child: const Icon(Icons.add,color: Colors.white,),
 
+          ),
         )
 
       ],

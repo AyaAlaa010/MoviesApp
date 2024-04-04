@@ -7,7 +7,6 @@ import '../../../core/widgets/new_releases_widget.dart';
 import '../viewmodels/new_release_cubit/new_release_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../viewmodels/popular_states.dart';
 
 class NewReleaseList extends StatefulWidget {
   const NewReleaseList({super.key});
