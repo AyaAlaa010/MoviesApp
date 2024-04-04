@@ -5,8 +5,8 @@ import '../config/styles/app_colors.dart';
 import 'new_releases_widget.dart';
 
 class RecommendedItemWidget extends StatelessWidget {
-  //MovieModel model
-  const RecommendedItemWidget({super.key});
+  final MovieModel model;
+  const RecommendedItemWidget({super.key,required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +15,16 @@ class RecommendedItemWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       color: AppColors.itemBackground,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        // const Expanded(
-        //     flex: 8,
-        //     child:
-            // NewReleasesWidget(
-            //   image: "assets/images/movie_img.png",
-            // )),//todo remove comments
+         Expanded(
+            flex: 8,
+            child:
+            Container(
+              width: 110,
+              child: NewReleasesWidget(
+                movieModel: model,
+              ),
+            )),
+
         Expanded(
           flex: 2,
           child: Row(
@@ -36,7 +40,7 @@ class RecommendedItemWidget extends StatelessWidget {
                 width: 5,
               ),
               Text(
-                "7.7",
+                model.vote_average.toString(),
                 style: Constants.theme.textTheme.displayLarge,
                 textAlign: TextAlign.start,
               )
@@ -48,7 +52,7 @@ class RecommendedItemWidget extends StatelessWidget {
             child: Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: Text(
-                  "Deadpool 2",
+                  model.title,
                   style: Constants.theme.textTheme.displayLarge,
                 ))),
         Expanded(
@@ -56,7 +60,7 @@ class RecommendedItemWidget extends StatelessWidget {
             child: Padding(
                 padding: const EdgeInsets.only(left: 5, bottom: 3),
                 child: Text(
-                  "2018 R 1h:5m",
+                  model.release_date,
                   style: Constants.theme.textTheme.displayMedium,
                 )))
       ]),

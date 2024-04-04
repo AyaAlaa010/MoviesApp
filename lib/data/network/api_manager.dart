@@ -52,4 +52,28 @@ class ApiManager {
     }
   }
 
+
+  Future<List<MovieModel>> getRecommendation() async {
+    List<MovieModel> recommendationList = [];
+    Map<String, String> ? queryParams = {
+      "Authorization": Constants.accessToken
+    };
+    Uri uri = Uri.https(Constants.baseUrl, "/3/movie/top_rated" );
+    var response = await http.get(uri,headers: queryParams);
+    var data = jsonDecode(response.body);
+    if (response.statusCode == 200) {
+
+      var newReleaseJson = data["results"];
+
+      for (var element in newReleaseJson) {
+        recommendationList.add(MovieModel.init(element));
+      }
+      return recommendationList;
+    } else {
+      var error = data["status_message"];
+      throw Exception(error);
+    }
+  }
+
+
 }
