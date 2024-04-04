@@ -21,8 +21,10 @@ class PopularCubit extends Cubit<PopularStates> {
     emit(LoadingPopularStates());
     try {
       List<PopularMovie> popularList = await popularRepository.getPopularMovies();
+      print("list --->${popularList.length}");
       emit(SuccessPopularStates(popularList));
     } catch (message) {
+      print("message --->${message}");
       emit(ErrorPopularStates(message.toString()));
     }
   }

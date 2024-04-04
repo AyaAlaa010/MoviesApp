@@ -7,23 +7,25 @@ import 'package:http/http.dart' as http;
 class ApiManager {
   Future<List<PopularMovie>> getPopularMovies() async {
     List<PopularMovie> popularMoviesList = [];
-    Map<String, dynamic> queryParams = {
-      "Authorization": Constants.accessToken,
-      "accept": "application/json"
+    Map<String, String> ? queryParams = {
+      "Authorization": Constants.accessToken
     };
-    Uri uri = Uri.https(Constants.baseUrl, "/popular", queryParams);
-    var response = await http.get(uri);
+    Uri uri = Uri.https(Constants.baseUrl, "/3/movie/popular" );
+    var response = await http.get(uri,headers: queryParams);
     if (response.statusCode == 200) {
+
       var data = jsonDecode(response.body);
       var popularMoviesJson = data["results"];
+      print(popularMoviesJson);
 
       for (var element in popularMoviesJson) {
         popularMoviesList.add(PopularMovie.init(element));
       }
-
       return popularMoviesList;
     } else {
-      throw Exception("some thing went wrong");
+      var data = jsonDecode(response.body);
+      var error = data["status_message"];
+      throw Exception(error);
     }
   }
 }

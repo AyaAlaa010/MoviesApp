@@ -1,25 +1,66 @@
 import 'package:flutter/material.dart';
-
-import '../config/app_constants/constants.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
+import '../config/styles/app_colors.dart';
 
 class PosterWidget extends StatelessWidget {
-  const PosterWidget({super.key});
+  final String image;
+  const PosterWidget({required this.image, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: Constants.mediaQuery.width,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: Image.asset("assets/images/poster.png",fit: BoxFit.cover,).image
-          )
+    return Stack(
+        // width: Constants.mediaQuery.width,
+        alignment: Alignment.center,
+        // decoration: BoxDecoration(
+        //     image: DecorationImage(
+        //         image:
+        //         CachedNetworkImage(
+        //           imageBuilder: (context, imageProvider) {
+        //             return  Container(
+        //               decoration: BoxDecoration(
+        //                   borderRadius: BorderRadius.circular(16),
+        //                   color: Colors.grey.shade100,
+        //                   image: DecorationImage(image: imageProvider,fit: BoxFit.cover)
+        //               ),
+        //             );
+        //
+        //           },
+        //           imageUrl: Constants.imageBaseUrl+image,
+        //           fit: BoxFit.cover,
+        //           placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: AppColors.primaryColor,)),
+        //           errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
+        //         ),
+        //
+        //       //Image.asset(Constants.imageBaseUrl+image,fit: BoxFit.cover,).image
+        //     )
+        //
+        // ),
 
-      ),
-
-      child: const Icon(Icons.play_circle_rounded,color: Colors.white,size: 60,),
-
-    );
+        children: [
+          CachedNetworkImage(
+            imageBuilder: (context, imageProvider) {
+              return Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.grey.shade100,
+                    image: DecorationImage(
+                        image: imageProvider, fit: BoxFit.cover)),
+              );
+            },
+            imageUrl:  image,
+            fit: BoxFit.cover,
+            placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(
+              color: AppColors.primaryColor,
+            )),
+            errorWidget: (context, url, error) =>
+                const Center(child: Icon(Icons.error)),
+          ),
+          const Icon(
+            Icons.play_circle_rounded,
+            color: Colors.white,
+            size: 60,
+          ),
+        ]);
   }
 }
