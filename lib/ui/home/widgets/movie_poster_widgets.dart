@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/config/styles/app_colors.dart';
 import 'package:movies_app/core/widgets/new_releases_widget.dart';
+import 'package:movies_app/data/models/home_models/movie_model.dart';
 import '../../../core/config/app_constants/constants.dart';
 import '../../../core/widgets/poster_widget.dart';
 
 class MoviePosterWidget extends StatelessWidget {
-  const MoviePosterWidget({super.key});
+  final MovieModel movie;
+  const MoviePosterWidget({ required this.movie, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +15,19 @@ class MoviePosterWidget extends StatelessWidget {
       Stack(
         alignment: Alignment.bottomLeft,
         children: [
-          const PosterWidget(),
+           Padding
+             (padding:const  EdgeInsets.only(bottom: 60),
+               child: PosterWidget(image:Constants.imageBaseUrl+movie.backdrop_path)),
           Positioned(
-            bottom: -25,
+            bottom: 0,
             child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               const SizedBox(
                 width: 8,
               ),
-              const NewReleasesWidget(image: "assets/images/dora.png",),
+               Container(
+                   height: 180,
+                   width: 140,
+                   child: NewReleasesWidget(movieModel: movie)),
               const SizedBox(width: 8,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,15 +36,15 @@ class MoviePosterWidget extends StatelessWidget {
                     height: 100,
                   ),
                   Text(
-                    "Dora and the lost city of gold",
+                    movie.title,
                     style: Constants.theme.textTheme.labelSmall!.copyWith(color: Colors.white),
                   ),
                   const SizedBox(
                     height: 7,
                   ),
                   Text(
-                    "2019  PG-13  2h 7m",
-                    style: Constants.theme.textTheme.displayLarge,
+                    movie.release_date,
+                    style: Constants.theme.textTheme.displayLarge!.copyWith(color: AppColors.displayColor),
                   ),
                 ],
               )
