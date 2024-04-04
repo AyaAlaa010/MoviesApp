@@ -12,6 +12,7 @@ class NewReleasesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return   Stack(
       alignment: Alignment.topLeft,
+
       children: [
         CashedNetworkImageWidget(image: Constants.imageBaseUrl+movieModel.poster_path)
       ,
