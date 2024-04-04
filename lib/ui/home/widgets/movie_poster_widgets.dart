@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/styles/app_colors.dart';
 import 'package:movies_app/core/widgets/new_releases_widget.dart';
-import 'package:movies_app/data/models/home_models/popular_movie.dart';
+import 'package:movies_app/data/models/home_models/movie_model.dart';
 import '../../../core/config/app_constants/constants.dart';
 import '../../../core/widgets/poster_widget.dart';
 
 class MoviePosterWidget extends StatelessWidget {
-  final PopularMovie movie;
+  final MovieModel movie;
   const MoviePosterWidget({ required this.movie, super.key});
 
   @override
@@ -16,7 +16,7 @@ class MoviePosterWidget extends StatelessWidget {
         alignment: Alignment.bottomLeft,
         children: [
            Padding
-             (padding:const  EdgeInsets.only(bottom: 80),
+             (padding:const  EdgeInsets.only(bottom: 60),
                child: PosterWidget(image:Constants.imageBaseUrl+movie.backdrop_path)),
           Positioned(
             bottom: 0,
@@ -24,7 +24,10 @@ class MoviePosterWidget extends StatelessWidget {
               const SizedBox(
                 width: 8,
               ),
-               NewReleasesWidget(image:Constants.imageBaseUrl+movie.poster_path),
+               Container(
+                   height: 180,
+                   width: 140,
+                   child: NewReleasesWidget(movieModel: movie)),
               const SizedBox(width: 8,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

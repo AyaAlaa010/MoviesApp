@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/data/models/home_models/movie_model.dart';
 import '../config/app_constants/constants.dart';
 import '../config/styles/app_colors.dart';
 import 'new_releases_widget.dart';
 
 class RecommendedItemWidget extends StatelessWidget {
+  //MovieModel model
   const RecommendedItemWidget({super.key});
 
   @override
@@ -13,11 +15,12 @@ class RecommendedItemWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       color: AppColors.itemBackground,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Expanded(
-            flex: 8,
-            child: NewReleasesWidget(
-              image: "assets/images/movie_img.png",
-            )),
+        // const Expanded(
+        //     flex: 8,
+        //     child:
+            // NewReleasesWidget(
+            //   image: "assets/images/movie_img.png",
+            // )),//todo remove comments
         Expanded(
           flex: 2,
           child: Row(

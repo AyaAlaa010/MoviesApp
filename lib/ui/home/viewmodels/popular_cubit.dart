@@ -1,5 +1,5 @@
 import 'package:movies_app/data/data_sources/home_data_source/popular_data_source/popular_data_source_imp.dart';
-import 'package:movies_app/data/models/home_models/popular_movie.dart';
+import 'package:movies_app/data/models/home_models/movie_model.dart';
 import 'package:movies_app/data/repositories_imp/popular_repository_imp.dart';
 import 'package:movies_app/ui/home/viewmodels/popular_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +20,7 @@ class PopularCubit extends Cubit<PopularStates> {
     popularRepository = PopularRepositoryImp(popularDataSource);
     emit(LoadingPopularStates());
     try {
-      List<PopularMovie> popularList = await popularRepository.getPopularMovies();
+      List<MovieModel> popularList = await popularRepository.getPopularMovies();
       print("list --->${popularList.length}");
       emit(SuccessPopularStates(popularList));
     } catch (message) {

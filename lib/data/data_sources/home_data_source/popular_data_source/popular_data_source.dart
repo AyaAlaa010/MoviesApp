@@ -1,5 +1,5 @@
-import 'package:movies_app/data/models/home_models/popular_movie.dart';
+import 'package:movies_app/data/models/home_models/movie_model.dart';
 
 abstract class PopularDataSource {
-  Future<List<PopularMovie>> getPopularMovies();
+  Future<List<MovieModel>> getPopularMovies();
 }

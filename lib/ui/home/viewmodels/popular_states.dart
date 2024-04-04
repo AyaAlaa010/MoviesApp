@@ -1,11 +1,11 @@
-import '../../../data/models/home_models/popular_movie.dart';
+import '../../../data/models/home_models/movie_model.dart';
 
 sealed class PopularStates {}
 
 class LoadingPopularStates extends PopularStates {}
 
 class SuccessPopularStates extends PopularStates {
-  final List<PopularMovie> popularList;
+  final List<MovieModel> popularList;
   SuccessPopularStates(this.popularList);
 }
 

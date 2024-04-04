@@ -5,7 +5,6 @@ import 'package:movies_app/ui/home/viewmodels/popular_cubit.dart';
 import 'package:movies_app/ui/home/viewmodels/popular_states.dart';
 
 import '../../../core/config/app_constants/constants.dart';
-import '../../../core/config/styles/app_colors.dart';
 import 'movie_poster_widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -85,7 +84,8 @@ class _CarouselWidgetState extends State<CarouselWidget> {
               ),
             ),
           );
-      }}
+      }
+      }
     });
   }
 }
