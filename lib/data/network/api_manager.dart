@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
 import 'package:movies_app/core/config/app_constants/constants.dart';
 import 'package:movies_app/data/models/home_models/movie_model.dart';
-import 'package:http/http.dart' as http;
 
 class ApiManager {
   Future<List<MovieModel>> getPopularMovies() async {
@@ -52,7 +52,6 @@ class ApiManager {
     }
   }
 
-
   Future<List<MovieModel>> getRecommendation() async {
     List<MovieModel> recommendationList = [];
     Map<String, String> ? queryParams = {
@@ -75,5 +74,31 @@ class ApiManager {
     }
   }
 
+  static Future<List<MovieModel>> fetchCategoryData(String categoryId) async {
+    List<MovieModel> moviesDataList = [];
+    Map<String, dynamic>? queryParams = {
+      "api_key": "ad89d469278b2085d421274a9589870d",
+      "with_genres": categoryId
+    };
+    //List genreIds=[];
+    Uri uri = Uri.https(Constants.baseUrl, "/3/discover/movie", queryParams /**/
+        );
+    var response = await http.get(
+      uri,
+      //headers: queryParams
+    );
 
+    var data = jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      List moviesList = data["results"];
+
+      for (var element in moviesList) {
+        moviesDataList.add(MovieModel.init(element));
+      }
+      return moviesDataList;
+    } else {
+      var error = data["status_message"];
+      throw Exception(error);
+    }
+  }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../browes/views/browes_view.dart';
@@ -7,10 +6,9 @@ import '../../search/views/search_view.dart';
 import '../../watchlist/views/watchlist_view.dart';
 
 class LayoutView extends StatefulWidget {
-
-
-
-  const LayoutView({super.key});
+  const LayoutView({
+    super.key,
+  });
 
   @override
   State<LayoutView> createState() => _LayoutViewState();
@@ -22,8 +20,9 @@ class _LayoutViewState extends State<LayoutView> {
   List <Widget> screens= const [
     HomeView(),
     SearchView(),
-    BrowesView(),
-    WatchListView()];
+    BrowseView(),
+    WatchListView()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
